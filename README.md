@@ -2,8 +2,6 @@
 
 This is a [course at the University of Basel](https://vorlesungsverzeichnis.unibas.ch/en/semester-planning?id=264654), given by James Wootton of [IBM Research](https://researcher.watson.ibm.com/researcher/view.php?person=zurich-JWO).
 
-**Regarding the current health situation, keep track of the [university](https://www.unibas.ch/en/News-Events/Coronavirus.html) and [cantonal](https://www.coronavirus.bs.ch/) guidelines. An online alternative will be provided for all lectures. Information will be sent by email.**
-
 The course begins on 22nd Feb 2022 and will have weekly lectures and exercises.
 
 ## Course Content
@@ -16,7 +14,7 @@ The course will be based on the [Qiskit textbook](https://qiskit.org/textbook/pr
 
 ## Lectures
 
-In-person lectures will be held when possible. However, since the lectures will follow the same format as in 2021, pre-recorded lectures will be available for all who cannot attend for any reason.
+In-person lectures will be held at 15:15 on Tuesdays in Neuer Hörsaal 1. However, since the lectures will follow the same format as in 2021, pre-recorded lectures will be available for all who cannot attend for any reason.
 
 ## Exercises
 
