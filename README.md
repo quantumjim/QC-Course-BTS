@@ -14,7 +14,11 @@ The course will be based on the [Qiskit textbook](https://qiskit.org/textbook/pr
 
 ## Lectures
 
-In-person lectures will be held at 15:15 on Tuesdays in Neuer Hörsaal 1. However, since the lectures will follow the same format as in 2021, pre-recorded lectures will be available for all who cannot attend for any reason.
+Lectures will come in two parts:
+* The main lecture, provided as a video;
+* The extra lecture (in-person and optional) held at 15:15 on Tuesdays in Neuer Hörsaal 1.
+
+Registered students will get a weekly email with links to all resources. Anyone else wishing to follow along can find links to the lectures [here](https://twitter.com/decodoku/status/1496062847973011459).
 
 ## Exercises
 
