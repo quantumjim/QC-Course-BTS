@@ -133,6 +133,7 @@ def test_alt(
     print("\nCongratulations! All tests passed!")
 
 def test_paulis(
+        I,
         X,
         Y,
         Z,
@@ -147,19 +148,23 @@ def test_paulis(
         [0, 1]
         ])  # Identity matrix
 
-    paulis = {'X': X, 'Y': Y, 'Z': Z}
+    paulis = {'X': X, 'Y': Y, 'Z': Z, 'I':I}
     assert all(p is not None for p in [X, Y, Z, I]), "❌ FAIL: At least one matrix is not defined."
 
     # (a)
-    assert test_square_to_identity() is True, "❌ FAIL (a): Your function did not correctly verify that all Pauli matrices square to the identity."
+    for i in paulis:
+        assert np.allclose(test_square_to_identity(paulis[i]) , I), "❌ FAIL (a): Your function did not correctly verify that all Pauli matrices square to the identity."
     print("✅ PASS (a): Your function `test_square_to_identity` works correctly.")
 
     # (b)
-    assert test_anticommutation() is True, "❌ FAIL (b): Your function did not correctly verify the anticommutation relations."
+    for i in ['X', 'Y', 'Z']:
+        for j in ['X', 'Y', 'Z']:
+            if i!=j:
+                assert np.allclose(paulis[i]@paulis[j],test_anticommutation(paulis[i],paulis[j])), "❌ FAIL (b): Your function did not correctly verify the anticommutation relations."
     print("✅ PASS (b): Your function `test_anticommutation` works correctly.")
 
     # (c)
-    assert test_product_relation() is True, "❌ FAIL (c): Your function did not correctly verify the Pauli product relations."
+    assert np.allclose(np.array(test_product_relation()), np.array([X@Y,Y@Z,Z@X])), "❌ FAIL (c): Your function did not correctly verify the Pauli product relations."
     print("✅ PASS (c): Your function `test_product_relation` works correctly.")
 
     # (d)
@@ -199,7 +204,7 @@ def test_hadamard(
     I = np.array([
     [1, 0],
     [0, 1]
-    ])  # Identity matrix
+    ])  
 
     # Check that matrices are defined before proceeding
     assert H is not None, "❌ FAIL: H matrix is not defined."
@@ -221,11 +226,15 @@ def test_hadamard(
     print("✅ PASS (a): Your function `get_hadamard_eigen_system` works correctly.")
 
     # (b)
-    assert test_hadamard_squares_to_identity() is True, "❌ FAIL (b): Your function did not correctly verify that H^2 = I."
+    assert np.allclose(test_hadamard_squares_to_identity() , I), "❌ FAIL (b): Your function did not correctly verify that H^2 = I."
     print("✅ PASS (b): Your function `test_hadamard_squares_to_identity` works correctly.")
+    X = np.array([[0, 1], [1, 0]], dtype=complex)
+    Y = np.array([[0, -1j], [1j, 0]], dtype=complex)
+    I = np.array([[1,0],[0,1]])
+    Z = np.array([[1,0],[0,-1]])
 
     # (c)
-    assert test_hadamard_pauli_transformation() is True, "❌ FAIL (c): Your function did not correctly verify the Hadamard-Pauli transformations."
+    assert np.allclose(np.array(test_hadamard_pauli_transformation()) , np.array([Z,-Y,X])), "❌ FAIL (c): Your function did not correctly verify the Hadamard-Pauli transformations."
     print("✅ PASS (c): Your function `test_hadamard_pauli_transformation` works correctly.")
 
 
