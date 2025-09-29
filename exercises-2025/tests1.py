@@ -228,14 +228,20 @@ def test_hadamard(
     # (b)
     assert np.allclose(test_hadamard_squares_to_identity() , I), "❌ FAIL (b): Your function did not correctly verify that H^2 = I."
     print("✅ PASS (b): Your function `test_hadamard_squares_to_identity` works correctly.")
+    answers = ["Z", "-Y", "X"]
     X = np.array([[0, 1], [1, 0]], dtype=complex)
     Y = np.array([[0, -1j], [1j, 0]], dtype=complex)
     I = np.array([[1,0],[0,1]])
     Z = np.array([[1,0],[0,-1]])
 
     # (c)
-    assert np.allclose(np.array(test_hadamard_pauli_transformation()) , np.array([Z,-Y,X])), "❌ FAIL (c): Your function did not correctly verify the Hadamard-Pauli transformations."
-    print("✅ PASS (c): Your function `test_hadamard_pauli_transformation` works correctly.")
+    things =        [ '1. H X H†',
+        '2. H Y H†',
+        '3. H Z H†']
+
+    for i,val in enumerate(test_hadamard_pauli_transformation()):
+        assert val == answers[i], f"❌ FAIL (c): Your function did not correctly verify the Hadamard-Pauli transformation {things[i]}."
+    print("✅ PASS (c): Your answers are correct.")
 
 
     print("\nCongratulations! All tests passed!")
